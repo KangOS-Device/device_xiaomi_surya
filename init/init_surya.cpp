@@ -100,8 +100,10 @@ void load_device_properties() {
 
     if (hwname == "surya") {
         set_device_props(fingerprint, description, "POCO", "surya", "POCO X3 NFC");
+        property_override("ro.product.mod_device", "surya_global");
     } else if (hwname == "karna") {
         set_device_props(fingerprint, description, "POCO", "karna", "POCO X3");
+        property_override("ro.product.mod_device", "surya_in_global");
     }
 }
 
