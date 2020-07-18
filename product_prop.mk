@@ -44,6 +44,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     vendor.display.disable_rotator_downscale=1 \
     ro.surface_flinger.has_wide_color_display=false
 
+# Gboard
+PRODUCT_PRODUCT_PROPERTIES += \
+    ro.com.google.ime.kb_pad_port_b=1
+
 # Smart fps switching
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.vendor.smart_dfps.enable=false
