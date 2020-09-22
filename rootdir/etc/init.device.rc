@@ -32,6 +32,10 @@ on init
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display/dsi_display_cabc
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display/dsi_display_cabc_movie
     chown system system /sys/devices/platform/soc/soc:qcom,dsi-display/dsi_display_cabc_still 
+    
+on early-init
+    # Disable UFS clock scaling
+    write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 0
 
 on late-init
     # Start services for bootanim
@@ -70,11 +74,15 @@ on property:vendor.post_boot.parsed=1
     swapon_all /vendor/etc/fstab.qcom
     write /proc/sys/vm/swappiness 50
 
+# perf tuning
 on property:persist.sys.device_provisioned=1
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,7
     setprop dalvik.vm.dex2oat-threads 6
 
-# perf tuning
+on property:sys.boot_completed=1
+    # Enable UFS clock scaling back
+    write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 1
+
 on property:vendor.post_boot.parsed=1
     # ZRAM setup
     write /sys/block/zram0/comp_algorithm lz4
