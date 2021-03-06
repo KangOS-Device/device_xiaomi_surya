@@ -9,9 +9,6 @@ $(call inherit-product, device/xiaomi/surya/device.mk)
 # Inherit some common Kang stuff.
 $(call inherit-product, vendor/kangos/config/common.mk)
 
-# Gapps
-USE_GAPPS := true
-
 # Kangos official
 KANGOS_BUILDTYPE := OFFICIAL
 
