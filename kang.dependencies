@@ -1,0 +1,14 @@
+[
+  {
+    "remote": "github",
+    "repository": "GZR-Kernels/Optimus_Drunk_Surya",
+    "target_path": "kernel/xiaomi/surya",
+    "revision": "11.0"
+  },
+  {
+    "remote": "github",
+    "repository": "BigTopKrazies/vendor_xiaomi_surya",
+    "target_path": "vendor/xiaomi/surya",
+    "revision": "11.0"
+  }
+]  
